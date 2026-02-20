@@ -1,5 +1,4 @@
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
 #define BASE 0
@@ -8,14 +7,7 @@
 #define ADJ  3
 
 / {
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-
-        tri_layer {
-            if-layers = <1 2>;
-            then-layer = <3>;
-        };
-    };
+    conditional_layers { compatible = "zmk,conditional-layers"; };
 
     behaviors {
         hold_tap: hold_tap {
@@ -28,6 +20,15 @@
             retro-tap;
             hold-while-undecided;
         };
+
+        mo_tog: mo_tog {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MO_TOG";
+            bindings = <&mo>, <&tog>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+        };
     };
 
     keymap {
@@ -36,35 +37,22 @@
         base {
             display-name = "BASE";
             bindings = <
-&kp ESCAPE  &kp Q  &kp W  &kp F  &kp P  &kp G  &kp J  &kp L  &kp U  &kp Y  &kp SQT  &kp EQUAL  &hold_tap LS(LEFT_ALT) TAB  &kp A  &kp R  &kp S  &kp T  &kp D  &kp H  &kp N  &kp E  &kp I  &kp O  &kp ENTER  &kp LSHFT  &hold_tap LCTRL Z  &kp X  &kp C  &kp V  &kp B  &kp K  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp SEMICOLON  &kp LGUI  &kp SPACE  &kp BACKSPACE  &kp LS(RET)  &kp SPACE  &kp RALT
+&kp ESCAPE  &kp Q  &kp W  &kp F  &kp P  &kp G  &kp J  &kp L  &kp U  &kp Y  &kp SQT  &kp EQUAL  &hold_tap LS(LEFT_ALT) TAB  &kp A  &kp R  &kp S  &kp T  &kp D  &kp H  &kp N  &kp E  &kp I  &kp O  &kp ENTER  &kp LSHFT  &hold_tap LCTRL Z  &kp X  &kp C  &kp V  &hold_tap LEFT_GUI B  &kp K  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp SEMICOLON  &kp LGUI  &kp SPACE  &mo_tog 1 1  &mo_tog 2 2  &kp BACKSPACE  &kp RALT
             >;
         };
 
-        nav {
-            display-name = "NAV";
-            bindings = <
-&kp TAB  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &kp BSPC  &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans  &trans  &kp LSHFT  &studio_unlock  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LGUI  &trans  &kp SPACE  &kp RET  &trans  &kp RALT
-            >;
-        };
-
-        sym {
+        symbol {
             display-name = "SYM";
             bindings = <
-&kp TAB  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT  &kp CARET  &kp AMPS  &kp KP_MULTIPLY  &kp LPAR  &kp RPAR  &kp BSPC  &kp LCTRL  &trans  &trans  &trans  &trans  &trans  &kp MINUS  &kp EQUAL  &kp LBKT  &kp RBKT  &kp BSLH  &kp GRAVE  &kp LSHFT  &trans  &trans  &trans  &trans  &trans  &kp UNDER  &kp PLUS  &kp LBRC  &kp RBRC  &kp PIPE  &kp TILDE  &kp LGUI  &trans  &kp SPACE  &kp RET  &trans  &kp RALT
+&kp GRAVE  &kp LS(EXCL)  &kp LS(AT)  &kp LS(POUND)  &kp LS(DLLR)  &kp LS(PRCNT)  &kp LS(CARET)  &kp LS(AMPS)  &kp LS(STAR)  &kp LS(LPAR)  &kp LS(RPAR)  &kp BSPC  &kp HOME  &kp GRAVE  &kp TILDE  &none  &none  &kp C_VOLUME_UP  &kp LA(LEFT_ARROW)  &kp UP  &kp LA(RIGHT)  &kp LS(LBRC)  &kp LS(RBRC)  &kp PAGE_UP  &kp END  &none  &none  &none  &none  &kp C_VOLUME_DOWN  &kp LEFT  &kp DOWN  &kp RIGHT  &kp LEFT_BRACE  &kp RBKT  &kp PAGE_DOWN  &trans  &none  &trans  &trans  &none  &trans
             >;
         };
 
-        adj {
-            display-name = "ADJ";
+        number {
+            display-name = "NUM";
             bindings = <
-&mo TAB  &trans  &kp F7  &kp F8  &kp F9  &kp F12  &kp C_VOL_DN  &kp C_MUTE  &kp C_VOL_UP  &trans  &trans  &kp BSPC  &kp LCTRL  &trans  &kp F4  &kp F5  &kp F6  &kp F11  &trans  &trans  &trans  &trans  &trans  &trans  &bt LSHFT  &trans  &kp F1  &kp F2  &kp F3  &kp F10  &trans  &trans  &trans  &trans  &trans  &trans  &kp LGUI  &mo NAV  &kp SPACE  &kp RET  &mo 2  &kp RALT
+&none  &none  &none  &none  &none  &none  &kp LEFT_PARENTHESIS  &kp N7  &kp N8  &kp N9  &kp RPAR  &kp BSPC  &none  &none  &none  &none  &none  &none  &kp PLUS  &kp N4  &kp N5  &kp N6  &kp MINUS  &kp EQUAL  &none  &none  &none  &none  &none  &kp LEFT_GUI  &kp ASTERISK  &kp N1  &kp N2  &kp N3  &kp SLASH  &kp PERIOD  &none  &none  &trans  &trans  &none  &kp N0
             >;
         };
-
-        extra_1 { status = "reserved"; };
-
-        extra_2 { status = "reserved"; };
-
-        extra_3 { status = "reserved"; };
     };
 };
