@@ -44,7 +44,7 @@
         symbol {
             display-name = "SYM";
             bindings = <
-&kp GRAVE  &kp LS(EXCL)  &kp LS(AT)  &kp LS(POUND)  &kp LS(DLLR)  &kp LS(PRCNT)  &kp LS(CARET)  &kp LS(AMPS)  &kp LS(STAR)  &kp LS(LPAR)  &kp LS(RPAR)  &kp BSPC  &kp HOME  &kp GRAVE  &kp TILDE  &none  &none  &kp C_VOLUME_UP  &kp LA(LEFT_ARROW)  &kp UP  &kp LA(RIGHT)  &kp LS(LBRC)  &kp LS(RBRC)  &kp PAGE_UP  &kp END  &none  &none  &none  &none  &kp C_VOLUME_DOWN  &kp LEFT  &kp DOWN  &kp RIGHT  &kp LEFT_BRACE  &kp RBKT  &kp PAGE_DOWN  &trans  &none  &trans  &trans  &none  &trans
+&kp GRAVE  &kp LS(EXCL)  &kp LS(AT)  &kp LS(POUND)  &kp LS(DLLR)  &kp LS(PRCNT)  &kp LS(CARET)  &kp LS(AMPS)  &kp LS(STAR)  &kp LS(LPAR)  &kp LS(RPAR)  &kp BSPC  &kp HOME  &kp GRAVE  &kp TILDE  &none  &none  &kp C_VOLUME_UP  &kp LA(LEFT_ARROW)  &kp UP  &kp LA(RIGHT)  &kp LS(LBRC)  &kp LS(RBRC)  &kp PAGE_UP  &kp END  &kp BACKSLASH  &kp PIPE  &none  &none  &kp C_VOLUME_DOWN  &kp LEFT  &kp DOWN  &kp RIGHT  &kp LEFT_BRACE  &kp RBKT  &kp PAGE_DOWN  &trans  &none  &trans  &trans  &none  &trans
             >;
         };
 
